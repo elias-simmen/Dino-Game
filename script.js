@@ -1,33 +1,33 @@
-const dino = document.getElementById("dino")
-const rock = document.getElementById("rock")
+const eagle = document.getElementById("eagle")
+const obstacle = document.getElementById("obstacle")
 const score = document.getElementById("score")
 
 function jump() {
-  dino.classList.add("jump-animation")
-  setTimeout(() => dino.classList.remove("jump-animation"), 750)
+  eagle.classList.add("jump-animation")
+  setTimeout(() => eagle.classList.remove("jump-animation"), 750)
 }
 
 document.addEventListener("keypress", (event) => {
-  if (!dino.classList.contains("jump-animation")) {
+  if (!eagle.classList.contains("jump-animation")) {
     jump()
   }
 })
 
 setInterval(() => {
-  const dinoTop = parseInt(
-    window.getComputedStyle(dino).getPropertyValue("top"),
+  const eagleTop = parseInt(
+    window.getComputedStyle(eagle).getPropertyValue("top"),
   )
-  const rockLeft = parseInt(
-    window.getComputedStyle(rock).getPropertyValue("left"),
+  const obstacleLeft = parseInt(
+    window.getComputedStyle(obstacle).getPropertyValue("left"),
   )
   score.innerText = parseInt(score.innerText) + 2;
 
-  if (rockLeft < 0) {
-    rock.style.display = "none"
+  if (obstacleLeft < 0) {
+    obstacle.style.display = "none"
   } else {
-    rock.style.display = ""
+    obstacle.style.display = ""
   }
 
-  if (rockLeft < 50 && rockLeft > 0 && dinoTop > 150) 
+  if (obstacleLeft < 50 && obstacleLeft > 0 && eagleTop > 150) 
   {score.innerText = 0}
 }, 50)
